@@ -13,38 +13,45 @@
 
     <div class="more">
        <h1>Your title</h1>  
+       <p>Lorem ipsum dolor sit,dam, aspernatur deleniti autem!</p>  
+       <p>Lorem ipsum dolor sit, amet consectetutam eligendi sed iure veniam ea quibusdam quis blanditiis, vel amet quod aliquam, aspernatur deleniti autem!</p>  
     </div>
+    <div class="more">
+        <h1>Your title</h1>  
+        <p>Lorem ipsum dolor  totam eligendi sed iure veniam ea quibusdam quis blanditiis, vel amet quod aliquam, aspernatur deleniti autem!</p>  
+        <p>Lorem ipsum dolor sits excepturi totam eligendi sed iure veniam ea quibusdam quis blanditiis, vel amet quod aliquam, aspernatur deleniti autem!</p>  
+     </div>
 
-
+  
 
 
 
     <script>    
-            const newElement  =  function(){
-                    let createBtn  = document.createElement('button')
-                    createBtn.textContent ='Read more..'
-                    createBtn.setAttribute('id', 'readMore')
-                    return createBtn
-            }
+            let divContent = document.querySelectorAll('.more')
 
-            let divContent = document.querySelector('.more')
+            divContent.forEach((single_div)=>{
 
-            let innerContet = new String(divContent.innerHTML)
+                var allTags =single_div.getElementsByTagName('*')
 
-            var res = innerContet.split(' ').length
-            
-            console.log(innerContet)
-            console.log(res)
-
-
-            divContent.appendChild(newElement())
-            let readMore = document.querySelector('#readMore')
-
-            readMore.addEventListener( 'click', ()=>{
-               
+                allTags =  Object.values(allTags)
+                allTags.forEach((single_tag)=>{
+                        var wordcount  = single_tag.split(" ")
+                    console.log(wordcount)
+                })
+                
             })
 
+           
+            
+            divContent.forEach((single_div)=>{
+                single_div.innerHTML +="<button id='readMore'>Read more..</div>"
 
+                    
+
+                    single_div.addEventListener('click', ()=>{
+                        console.log(single_div)
+                    } )
+            })
     </script>
 </body>
 </html>
